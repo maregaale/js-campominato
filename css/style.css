@@ -1,0 +1,36 @@
+/* Mix */
+.result {
+  border-radius: 10px;
+  box-shadow: 4px 5px 20px grey;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.disp_block {
+  display: block;
+}
+
+/* Typo */
+h1, h2 {
+  display: none;
+  text-align: center;
+}
+
+h1 {
+  font-size: 40px;
+  color: blue;
+}
+
+#score_number {
+  font-size: 50px;
+  font-weight: bolder;
+  color: green;
+}

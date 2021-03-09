@@ -86,6 +86,11 @@ while (i <= (max - random.length) && !(random.includes(numberUser))) {
   i++;
 }
 
-// stampo il punteggio raggiunto dall'utente
-console.log("il tuo punteggio è di " + (insertUser.length - 1));
-console.log("le bombe erano queste: " + random);
+// stampo a schermo il punteggio raggiunto dall'utente
+var score = document.getElementById('score');
+score.classList.add("disp_block");
+document.getElementById('score_number').innerHTML = insertUser.length - 1;
+
+var bombs = document.getElementById('bombs');
+bombs.classList.add("disp_block");
+document.getElementById('bomb_numbers').innerHTML += random;
