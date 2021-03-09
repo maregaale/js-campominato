@@ -1,8 +1,6 @@
 // CONSEGNA:
 
-// I numeri non possono essere duplicati.
-// In seguito deve chiedere all’utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
-// L’utente non può inserire più volte lo stesso numero.
+
 // Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
 // La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
@@ -35,5 +33,23 @@ for(var i = 0; i < 16 ; i++) {
     i--;
   }
 }
-
 console.log(random);
+// chiedo all'utente di inserire un numero alla volta
+var insertUser = [];
+
+// chiedo un numero fintanto che questo non è nella lista dei nueri vietati
+var i = 0;
+while (i <= (100 - random.length) && !(random.includes(numberUser))) {
+  var numberUser = parseInt(prompt("inserisci un numero da 1 a 100"));
+
+  // controllo che l'utente non inserisca lo stesso numero
+  if (insertUser.includes(numberUser) == false) {
+    insertUser.push(numberUser);
+  } else {
+    alert("non ripetere lo stesso numero");
+  }
+
+  i++;
+}
+
+console.log(insertUser);
