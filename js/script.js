@@ -37,11 +37,20 @@ while (i <= (100 - random.length) && !(random.includes(numberUser))) {
   var numberUser = parseInt(prompt("inserisci un numero da 1 a 100"));
 
   // controllo che l'utente non inserisca lo stesso numero
-  if (insertUser.includes(numberUser) == false) {
-    insertUser.push(numberUser);
+  if (!(isNaN(numberUser)) && numberUser != "") {
+    if (numberUser >= 1 && numberUser <= 100 ) {
+      if (insertUser.includes(numberUser) == false) {
+        insertUser.push(numberUser);
+      } else {
+        alert("non ripetere lo stesso numero");
+      }
+    } else {
+      alert("devi inserire un numero da 1 a 100");
+    }
   } else {
-    alert("non ripetere lo stesso numero");
+    alert("devi inserire un numero");
   }
+
 
   i++;
 }
