@@ -1,11 +1,5 @@
 // CONSEGNA:
 
-
-// Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all’utente un altro numero.
-// La partita termina quando il giocatore inserisce un numero “vietato” o raggiunge il numero massimo possibile di numeri consentiti.
-// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
-
-
 // BONUS: (da fare solo se funziona tutto il resto)
 // all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali:
 // con difficoltà 0 => tra 1 e 100
@@ -52,4 +46,5 @@ while (i <= (100 - random.length) && !(random.includes(numberUser))) {
   i++;
 }
 
-console.log(insertUser);
+// stampo il punteggio raggiunto dall'utente
+console.log("il tuo punteggio è di " + (insertUser.length - 1));
