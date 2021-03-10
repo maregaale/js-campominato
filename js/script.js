@@ -4,46 +4,57 @@ function randomGenerator(x, y) {
   return Math.floor(Math.random() * (y - x + 1) ) + x;
 }
 
-// chiedo di scegliere la difficoltà
+// VARIABILI:
 var difficulty = prompt("inserisci la difficoltà: 0(facile), 1(media), 2(difficile)");
+var max;
+var random = [];
+var numberCpu;
+var insertUser = [];
+var j = 0;
+var numberUser;
+var score = document.getElementById('score');
+var bombs = document.getElementById('bombs');
 
-// inserisco e controllo le diverse difficoltà
+// chiedo di scegliere la difficoltà e controllo
 if (!(isNaN(difficulty)) && difficulty != "" && 0 <= difficulty && difficulty <= 2)  {
+
   // difficoltà: 0
   if (difficulty == 0) {
-    var max = 100;
+    max = 100;
   }
   // difficoltà: 1
   else if (difficulty == 1) {
-    var max = 80;
+    max = 80;
   }
   // difficoltà: 2
   else if (difficulty == 2) {
-    var max = 50;
+    max = 50;
   }
+
 } else {
   alert("inserisci una difficoltà in numero tra 0 e 2");
 }
 
 // ciclo per 16 volte generando i 16 numeri casuali tra 1 e 100
-var random = [];
 for(var i = 0; i < 16 ; i++) {
 
-  var numberCpu = parseInt(randomGenerator(1, max));
+  // assegno valore a variabile numberCpu
+  numberCpu = parseInt(randomGenerator(1, max));
+
   // controllo che il numero non sia già presente
   if (random.includes(numberCpu) == false) {
       random.push(numberCpu);
   } else {
     i--;
   }
+
 }
 
 // chiedo un numero alla volta fintanto che questo non è nella lista dei nueri vietati
-var insertUser = [];
-var j = 0;
-
 while (j < (max - random.length) && !(random.includes(numberUser))) {
-  var numberUser = parseInt(prompt("inserisci un numero da 1 a " + max));
+
+  // assegno valore a variabile numberUser
+  numberUser = parseInt(prompt("inserisci un numero da 1 a " + max));
 
   // controllo che l'utente non inserisca lo stesso numero
   if (!(isNaN(numberUser)) && numberUser != "") {
@@ -61,13 +72,12 @@ while (j < (max - random.length) && !(random.includes(numberUser))) {
   }
 
   j++;
+  
 }
 
 // stampo a schermo il punteggio raggiunto dall'utente
-var score = document.getElementById('score');
 score.classList.add("disp_block");
 document.getElementById('score_number').innerHTML = insertUser.length - 1;
 
-var bombs = document.getElementById('bombs');
 bombs.classList.add("disp_block");
 document.getElementById('bomb_numbers').innerHTML += random;
