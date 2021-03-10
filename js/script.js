@@ -63,9 +63,9 @@ if (!(isNaN(difficulty)) && difficulty != "" && 0 <= difficulty && difficulty <=
 
 // chiedo un numero alla volta fintanto che questo non è nella lista dei nueri vietati
 var insertUser = [];
-var i = 0;
+var j = 0;
 
-while (i <= (max - random.length) && !(random.includes(numberUser))) {
+while (j < (max - random.length) && !(random.includes(numberUser))) {
   var numberUser = parseInt(prompt("inserisci un numero da 1 a " + max));
 
   // controllo che l'utente non inserisca lo stesso numero
@@ -83,7 +83,7 @@ while (i <= (max - random.length) && !(random.includes(numberUser))) {
     alert("devi inserire un numero");
   }
 
-  i++;
+  j++;
 }
 
 // stampo a schermo il punteggio raggiunto dall'utente
