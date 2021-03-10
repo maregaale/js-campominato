@@ -7,58 +7,35 @@ function randomGenerator(x, y) {
 // chiedo di scegliere la difficoltà
 var difficulty = prompt("inserisci la difficoltà: 0(facile), 1(media), 2(difficile)");
 
-// ciclo per 16 volte generando i 16 numeri casuali tra 1 e 100
-var random = [];
-
-// inserisco le diverse difficoltà
+// inserisco e controllo le diverse difficoltà
 if (!(isNaN(difficulty)) && difficulty != "" && 0 <= difficulty && difficulty <= 2)  {
   // difficoltà: 0
   if (difficulty == 0) {
     var max = 100;
-
-    for(var i = 0; i < 16 ; i++) {
-
-      var numberCpu = parseInt(randomGenerator(1, max));
-      // controllo che il numero non sia già presente
-      if (random.includes(numberCpu) == false) {
-          random.push(numberCpu);
-      } else {
-        i--;
-      }
-    }
   }
   // difficoltà: 1
   else if (difficulty == 1) {
     var max = 80;
-
-    for(var i = 0; i < 16 ; i++) {
-
-      var numberCpu = parseInt(randomGenerator(1, max));
-      // controllo che il numero non sia già presente
-      if (random.includes(numberCpu) == false) {
-          random.push(numberCpu);
-      } else {
-        i--;
-      }
-    }
   }
   // difficoltà: 2
   else if (difficulty == 2) {
     var max = 50;
-
-    for(var i = 0; i < 16 ; i++) {
-
-      var numberCpu = parseInt(randomGenerator(1, max));
-      // controllo che il numero non sia già presente
-      if (random.includes(numberCpu) == false) {
-          random.push(numberCpu);
-      } else {
-        i--;
-      }
-    }
   }
 } else {
   alert("inserisci una difficoltà in numero tra 0 e 2");
+}
+
+// ciclo per 16 volte generando i 16 numeri casuali tra 1 e 100
+var random = [];
+for(var i = 0; i < 16 ; i++) {
+
+  var numberCpu = parseInt(randomGenerator(1, max));
+  // controllo che il numero non sia già presente
+  if (random.includes(numberCpu) == false) {
+      random.push(numberCpu);
+  } else {
+    i--;
+  }
 }
 
 // chiedo un numero alla volta fintanto che questo non è nella lista dei nueri vietati
