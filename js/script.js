@@ -5,7 +5,7 @@ function randomGenerator(x, y) {
 }
 
 // VARIABILI:
-var difficulty = prompt("inserisci la difficoltà: 0(facile), 1(media), 2(difficile)");
+var difficulty;
 var max;
 var random = [];
 var numberCpu;
@@ -16,23 +16,21 @@ var score = document.getElementById('score');
 var bombs = document.getElementById('bombs');
 
 // chiedo di scegliere la difficoltà e controllo
-if (!(isNaN(difficulty)) && difficulty != "" && 0 <= difficulty && difficulty <= 2)  {
+do {
+  difficulty = parseInt(prompt("inserisci una difficoltà in numero tra 0 e 2 (0 = facile, 1 = media, 2 = difficile)"));
+} while (difficulty != 0 && difficulty != 1 && difficulty != 2);
 
-  // difficoltà: 0
-  if (difficulty == 0) {
-    max = 100;
-  }
-  // difficoltà: 1
-  else if (difficulty == 1) {
-    max = 80;
-  }
-  // difficoltà: 2
-  else if (difficulty == 2) {
-    max = 50;
-  }
-
-} else {
-  alert("inserisci una difficoltà in numero tra 0 e 2");
+// difficoltà 0, imposto il valore massimo
+if (difficulty == 0) {
+  max = 100;
+}
+// difficoltà 1, imposto il valore massimo
+else if (difficulty == 1) {
+  max = 80;
+}
+// difficoltà 2, imposto il valore massimo
+else if (difficulty == 2) {
+  max = 50;
 }
 
 // ciclo per 16 volte generando i 16 numeri casuali tra 1 e 100
@@ -72,7 +70,7 @@ while (j < (max - random.length) && !(random.includes(numberUser))) {
   }
 
   j++;
-  
+
 }
 
 // stampo a schermo il punteggio raggiunto dall'utente
